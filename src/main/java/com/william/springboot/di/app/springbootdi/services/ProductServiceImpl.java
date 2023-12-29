@@ -4,16 +4,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.william.springboot.di.app.springbootdi.models.Product;
-import com.william.springboot.di.app.springbootdi.repositories.ProductRepository;
+import com.william.springboot.di.app.springbootdi.repositories.ProductRepositoryImpl;
+import com.william.springboot.di.app.springbootdi.repositories.ProductService;
 
-public class ProductService { // tiene los mismos métodos que Repository pero podrá manipular, hacer cálculos,
-                              // consultas, insert, interactuar con otros repositorios
+public class ProductServiceImpl implements ProductService { // tiene los mismos métodos que Repository pero podrá
+                                                            // manipular, hacer cálculos,
+    // consultas, insert, interactuar con otros repositorios
 
     // no es recomendable usar el repository en el controlador directamente porque
     // es donde se persisten los datos sino que se debe usar un service
 
-    private ProductRepository repository = new ProductRepository();
+    private ProductRepositoryImpl repository = new ProductRepositoryImpl();
 
+    @Override
     public List<Product> findAll() {
         return repository.findAll().stream().map(p -> {
             Double priceTemp = p.getPrice() * 1.25d;
@@ -30,6 +33,7 @@ public class ProductService { // tiene los mismos métodos que Repository pero p
         }).collect(Collectors.toList());
     }
 
+    @Override
     public Product findById(Long id) {
         return repository.findById(id);
     }
