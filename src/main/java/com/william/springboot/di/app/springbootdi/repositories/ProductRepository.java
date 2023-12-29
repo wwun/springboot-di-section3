@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.william.springboot.di.app.springbootdi.models.Product;
 
-public class ProductRepository {
+public class ProductRepository { // capa de datos
     private List<Product> data;
 
     public ProductRepository() {
