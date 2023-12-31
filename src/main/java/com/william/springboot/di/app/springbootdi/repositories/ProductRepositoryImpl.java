@@ -3,8 +3,11 @@ package com.william.springboot.di.app.springbootdi.repositories;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.william.springboot.di.app.springbootdi.models.Product;
 
+@Repository // con esto, esta clase podrá ser inytectada donde se necesite
 public class ProductRepositoryImpl implements ProductRepository { // capa de datos
     private List<Product> data;
 

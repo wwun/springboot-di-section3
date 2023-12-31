@@ -3,10 +3,14 @@ package com.william.springboot.di.app.springbootdi.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.william.springboot.di.app.springbootdi.models.Product;
-import com.william.springboot.di.app.springbootdi.repositories.ProductRepositoryImpl;
+import com.william.springboot.di.app.springbootdi.repositories.ProductRepository;
 import com.william.springboot.di.app.springbootdi.repositories.ProductService;
 
+@Service // indica que es un componente de java
 public class ProductServiceImpl implements ProductService { // tiene los mismos métodos que Repository pero podrá
                                                             // manipular, hacer cálculos,
     // consultas, insert, interactuar con otros repositorios
@@ -14,7 +18,11 @@ public class ProductServiceImpl implements ProductService { // tiene los mismos 
     // no es recomendable usar el repository en el controlador directamente porque
     // es donde se persisten los datos sino que se debe usar un service
 
-    private ProductRepositoryImpl repository = new ProductRepositoryImpl();
+    // private ProductRepositoryImpl repository = new ProductRepositoryImpl();
+    // //esto ya no es necesario porque se usará Autowired
+
+    @Autowired
+    private ProductRepository repository;
 
     @Override
     public List<Product> findAll() {
