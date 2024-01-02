@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.william.springboot.di.app.springbootdi.models.Product;
-import com.william.springboot.di.app.springbootdi.repositories.ProductService;
+import com.william.springboot.di.app.springbootdi.services.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

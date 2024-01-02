@@ -1,4 +1,4 @@
-package com.william.springboot.di.app.springbootdi.repositories;
+package com.william.springboot.di.app.springbootdi.services;
 
 import java.util.List;
 
