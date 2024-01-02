@@ -5,10 +5,14 @@ import java.util.List;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import com.william.springboot.di.app.springbootdi.models.Product;
 
 @Primary
+//@RequestScope   //con esto se creará una sola instancia por cada request
+//@SessionScope   //con esto se creará una sola instancia por cada sesión
 @Repository("productList") // con esto, esta clase podrá ser inytectada donde se necesite
 public class ProductRepositoryImpl implements ProductRepository { // capa de datos
     private List<Product> data;
