@@ -21,8 +21,12 @@ public class ProductServiceImpl implements ProductService { // tiene los mismos 
     // private ProductRepositoryImpl repository = new ProductRepositoryImpl();
     // //esto ya no es necesario porque se usará Autowired
 
-    @Autowired
+    //@Autowired    //ya no es necesario anotar con Autowired porque en este caso se está haciendo la inyección de dependecia por el constructor
     private ProductRepository repository;
+
+    public ProductServiceImpl(ProductRepository repository){
+        this.repository = repository;
+    }
 
     @Override
     public List<Product> findAll() {

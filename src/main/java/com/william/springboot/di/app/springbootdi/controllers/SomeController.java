@@ -19,10 +19,14 @@ public class SomeController {
     // private ProductServiceImpl service = new ProductServiceImpl(); // con
     // Autowired
 
-    @Autowired
+    @Autowired  //se deja con Autowired para tener ambas versiones pero con constructor es mejor
     private ProductService service; // la idea con inyección de dependencia es ya no inyectar mediante la clase sino
                                     // mediante la interface
                                     // Springboot busca la interface y luego la clase que la implementa
+
+    /*public SomeController(ProductService service) {
+        this.service = service;
+    }*/
 
     @GetMapping
     public List<Product> list() {
